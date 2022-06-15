@@ -1,4 +1,4 @@
-import datetime
+from datetime import datetime
 
 from flask import request
 from flask_restful import Resource
@@ -67,12 +67,12 @@ class FilmListApi(Resource):
         if not film:
             return '', 404
         film_json = request.json
-        title = film_json.get('title'),
+        title = film_json.get('title')
         release_date = datetime.strptime(film_json.get('release_date'), '%B %d, %Y') if film_json.get(
             'release_date') else None,
-        distributed_by = film_json.get('distributed_by'),
-        description = film_json.get('description'),
-        length = film_json.get('length'),
+        distributed_by = film_json.get('distributed_by')
+        description = film_json.get('description')
+        length = film_json.get('length')
         rating = film_json.get('rating')
         if title:
             film.title = title
